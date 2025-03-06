@@ -57,42 +57,35 @@ namespace Native.Vosk.Helper
 
 
         }
-        public async Task<List<VoskModel>> FindVoskModels(string lang = "ru")
+        public async Task<List<VoskModel>> FindVoskModels(string lang = "ru", string type = "*")
         {
             var listModels = await GetVoskModelsList();
+            if (type != "*")
+                listModels = listModels.Where(m => m.type == type).Select(m => m).ToList();
             return listModels.Where(m => m.lang?.ToLower() == lang.ToLower()).Select(m => m).ToList();
         }
 
 
-
-
-
-        #region private
-        private async Task _DownlaodModel(string fileUrl, string destinationPath)
+        public async Task DownloadVoskModel(VoskModel model, HttpDownloadProgressChangedEventHandler httpDownloadProgressChangedEventHandler)
         {
-            using (HttpClient httpClient = new HttpClient())
+            if (model == null)
+                throw new Exception("VoskModel is null!");
+
+            if (string.IsNullOrEmpty(model.url))
+                throw new Exception("URL not valid!");
+
+            string nameFile = Path.Combine(CACHE_VOSK, $"{model.name}.zip");
+            using (HttpClientDownloader client = new HttpClientDownloader())
             {
-                try
-                {
-                    using (HttpResponseMessage response = await httpClient.GetAsync(fileUrl))
-                    {
-                        response.EnsureSuccessStatusCode();
-                        using (Stream contentStream = await response.Content.ReadAsStreamAsync(),
-                                       fileStream = new FileStream(destinationPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                        {
-                            await contentStream.CopyToAsync(fileStream);
-                        }
-                    }
-                    Console.WriteLine("File downloaded successfully!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred: {ex.Message}");
-                }
+                client.DownloadProgressChanged += httpDownloadProgressChangedEventHandler;
+                await client.DwinloadAsyncFile(
+                    model.url,
+                    nameFile
+                    );
             }
         }
 
-        #endregion
+
 
 
         public void Dispose()

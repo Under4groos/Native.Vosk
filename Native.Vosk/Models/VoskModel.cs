@@ -9,7 +9,12 @@
         public string? obsolete { get; set; }
         public object? size { get; set; }
         public string? size_text { get; set; }
-        // big, big-lgraph
+
+        // big
+        // big-lgraph
+        // small
+        // spk
+        // tts
         public string? type { get; set; }
         public string? url { get; set; }
         public string? version { get; set; }
