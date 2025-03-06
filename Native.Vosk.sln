@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Native.Vosk", "Native.Vosk\Native.Vosk.csproj", "{7A6EC98C-DF2C-4ED2-A1CB-88EEA41CF5ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIModelDownloader.Console", "AIModelDownloader.Console\AIModelDownloader.Console.csproj", "{7225F81C-2D87-42BF-881B-BB134519C999}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A6EC98C-DF2C-4ED2-A1CB-88EEA41CF5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6EC98C-DF2C-4ED2-A1CB-88EEA41CF5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6EC98C-DF2C-4ED2-A1CB-88EEA41CF5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6EC98C-DF2C-4ED2-A1CB-88EEA41CF5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7225F81C-2D87-42BF-881B-BB134519C999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7225F81C-2D87-42BF-881B-BB134519C999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7225F81C-2D87-42BF-881B-BB134519C999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7225F81C-2D87-42BF-881B-BB134519C999}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7225F81C-2D87-42BF-881B-BB134519C999} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D8E1B36-0CFC-4660-8195-379EB27C5131}
+	EndGlobalSection
+EndGlobal
